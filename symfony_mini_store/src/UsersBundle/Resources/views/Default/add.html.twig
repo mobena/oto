@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    
+<style>
+    label {
+        display: block;
+        width: 150px;
+        float: left;
+    }
+</style>
+
+<h1>Add a user</h1>
+<div style="margin: 20px;width: 300px;">
+<form action="" method="post">
+    {{ form_widget(form) }}
+    <br />
+    <input type="submit">
+</form>
+</div>
+<div style="margin: 20px;">
+    <a href="{{ path("users_homepage") }}">Return to list</a>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+users_homepage:
+    path:     /users
+    defaults: { _controller: UsersBundle:Default:index }
+
+users_add:
+    path:     /addUser
+    defaults: { _controller: UsersBundle:Default:add }
