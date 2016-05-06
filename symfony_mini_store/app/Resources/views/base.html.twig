@@ -7,7 +7,93 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <style>
+            
+            body {
+                font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+                font-size: 11px;
+                color: #141823;
+            }
+            
+            .body_content {
+                width: 90%;
+                margin: auto;
+            }
+            
+            label {
+                display: block;
+                width: 150px;
+                float: left;
+            }
+
+            table {
+                border-collapse: collapse;
+                min-width: 800px;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th {
+                background-color: #58D68D;
+                color: white;
+                text-align: left;
+                font-size: 120%;
+            }
+            
+            a {
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            
+            .menu {
+                color: white;
+                text-align: left;
+                border-radius: 15px;
+                background: #3b5998;
+                padding: 20px; 
+                width: 90%;
+                margin: auto;
+            }
+            
+            .menu_links:link {
+                color: white;
+                text-decoration: none;
+                margin: 5px 20px 5px 20px;
+                font-size: 16px;
+                
+                -webkit-transition: font-size 0.5s;
+                -moz-transition:    font-size 0.5s;
+                -o-transition:      font-size 0.5s;
+                transition:         font-size 0.5s;
+            }
+
+            .menu_links:visited {
+                color: white;
+            }
+
+            .menu_links:hover {
+                font-size: 22px;
+            }
+
+            .menu_links:active {
+                color: blue;
+            }
+        </style>
+        
+        <div class="menu">
+            <a class="menu_links" href="{{ path("homepage") }}">Home</a>
+            <a class="menu_links" href="{{ path("users_homepage") }}">Manage Users</a>
+        </div>
+        <div class="body_content">
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
     </body>
 </html>
