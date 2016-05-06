@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}MINI STORE{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -89,7 +89,7 @@
         
         <div class="menu">
             <a class="menu_links" href="{{ path("homepage") }}">Home</a>
-            <a class="menu_links" href="{{ path("users_homepage") }}">Manage Users</a>
+            <a class="menu_links" href="{{ path("users_homepage") }}" title="Manage Users">Users</a>
         </div>
         <div class="body_content">
             {% block body %}{% endblock %}
