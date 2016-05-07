@@ -1,3 +1,7 @@
+videos:
+    resource: "@VideosBundle/Resources/config/routing.yml"
+    prefix:   /
+
 users:
     resource: "@UsersBundle/Resources/config/routing.yml"
     prefix:   /
@@ -13,6 +17,6 @@ homepage:
     path:     /
     defaults: { _controller: AppBundle:Default:index }
 
-#fos_user_login:
-#    path:     /login
-#    defaults: { _controller: AppBundle:Default:login }
+fos_user_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Default:login }

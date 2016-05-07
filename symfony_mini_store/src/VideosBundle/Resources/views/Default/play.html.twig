@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h1>Video {{ video.name }}</h1>
+    <div style="margin: 20px;">
+        {{ video.source|raw }}
+        <br /><br />
+        {{ video.description }} added by {{ video.usercreator }} on {{ video.created|date('d M Y') }}
+    </div>
+    <div style="margin: 20px;">
+        <a href="{{ path("videos_homepage") }}">Return to list</a>
+    </div>
+{% endblock %}

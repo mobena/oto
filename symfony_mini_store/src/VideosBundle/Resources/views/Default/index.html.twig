@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h1>Videos registered</h1>
+    <div style="margin: 20px;">
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>User</th>
+                <th>Created</th>
+            </thead>
+            {% for video in videos %}
+            <tr>
+                <td><a href="{{ path("videos_play",{'idvideo':video.id}) }}">{{ video.name }}</a></td>
+                <td><a href="{{ path("videos_play",{'idvideo':video.id}) }}">{{ video.description }}</a></td>
+                <td>{{ video.usercreator }}</td>
+                <td>{{ video.created|date('d/m/Y') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin: 20px;">
+        <a href="{{ path("videos_add") }}">Add a video</a>
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}MINI STORE{% endblock %}</title>
+        <title>{% block title %}ViDeOMuSiCo{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -21,9 +21,9 @@
             }
             
             label {
-                display: block;
-                width: 150px;
-                float: left;
+            #    display: block;
+            #    width: 150px;
+            #    float: left;
             }
 
             table {
@@ -53,17 +53,17 @@
             }
             
             .menu {
-                color: white;
+            #    color: white;
                 text-align: left;
                 border-radius: 15px;
-                background: #3b5998;
+            #    background: #3b5998;
                 padding: 20px; 
                 width: 90%;
                 margin: auto;
             }
             
             .menu_links:link {
-                color: white;
+            #    color: white;
                 text-decoration: none;
                 margin: 5px 20px 5px 20px;
                 font-size: 16px;
@@ -75,7 +75,7 @@
             }
 
             .menu_links:visited {
-                color: white;
+            #    color: white;
             }
 
             .menu_links:hover {
@@ -88,9 +88,17 @@
         </style>
         
         <div class="menu">
+            <img src="{{ asset('favicon.ico') }}" style="width: 3%;height: auto;margin-right: 50px;" />
             <a class="menu_links" href="{{ path("homepage") }}">Home</a>
-            <a class="menu_links" href="{{ path("users_homepage") }}" title="Manage Users">Users</a>
-            <a class="menu_links" href="{{ path("homepage") }}login" title="Login">Login</a>
+            <a class="menu_links" href="{{ path("videos_homepage") }}" title="Checkout Videos">Checkout Videos</a>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <b>Hi {{ app.user.username }} / </b>
+                <a class="menu_links" href="{{ path("homepage") }}logout" title="Log Out"  style="margin-left: 1px;">Log Out</a>
+            {% else %}
+                <a class="menu_links" href="{{ path("homepage") }}login" title="Log In" style="margin-right: 2px;">Login</a>
+                <b>/</b>
+                <a class="menu_links" href="{{ path("homepage") }}register" title="Sign In"  style="margin-left: 2px;">Sign In</a>
+            {% endif %}
         </div>
         <div class="body_content">
             {% block body %}{% endblock %}

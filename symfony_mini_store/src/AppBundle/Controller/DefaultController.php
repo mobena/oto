@@ -7,14 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
-{
+{   
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-        mail('moamben@gmail.com','subject test','message test');
-        
+        //mail('moamben@gmail.com','subject test','message test');
+        //var_dump($this->getUser());
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),

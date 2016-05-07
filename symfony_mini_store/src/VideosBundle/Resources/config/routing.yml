@@ -1,0 +1,13 @@
+videos_homepage:
+    path:     /videos
+    defaults: { _controller: VideosBundle:Default:index }
+
+videos_add:
+    path:     /videos/add
+    defaults: { _controller: VideosBundle:Default:add }
+
+videos_play:
+    path:     /videos/play/{idvideo}
+    defaults: { _controller: VideosBundle:Default:play }
+
+
