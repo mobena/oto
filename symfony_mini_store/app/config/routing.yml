@@ -5,3 +5,14 @@ users:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+#fos_user_login:
+#    path:     /login
+#    defaults: { _controller: AppBundle:Default:login }

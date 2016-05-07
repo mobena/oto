@@ -13,9 +13,20 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        mail('moamben@gmail.com','subject test','message test');
+        
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));
     }
+    
+    /**
+     * @Route("/login", name="login")
+     */
+    /*public function loginAction()
+    {
+        exit();
+    }
+    */
 }
