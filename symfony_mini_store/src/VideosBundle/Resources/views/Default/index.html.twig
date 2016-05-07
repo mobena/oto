@@ -7,15 +7,15 @@
             <thead>
                 <th>Name</th>
                 <th>Description</th>
-                <th>User</th>
+                <th>#</th>
                 <th>Created</th>
             </thead>
             {% for video in videos %}
             <tr>
                 <td><a href="{{ path("videos_play",{'idvideo':video.id}) }}">{{ video.name }}</a></td>
                 <td><a href="{{ path("videos_play",{'idvideo':video.id}) }}">{{ video.description }}</a></td>
-                <td>{{ video.usercreator }}</td>
-                <td>{{ video.created|date('d/m/Y') }}</td>
+                <td>vignette</td>
+                <td>{{ video.created|date('d M Y') }} - {{ video.usercreator }}</td>
             </tr>
             {% endfor %}
         </table>
