@@ -14,7 +14,7 @@ class DefaultController extends Controller
 {   
     public function indexAction()
     {
-        $oEntityManager = $this->getDoctrine()->getEntityManager();
+        $oEntityManager = $this->getDoctrine()->getManager();
         
         $oVideos = $oEntityManager->getRepository("VideosBundle:Video")->findAll();
         
@@ -28,7 +28,7 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('fos_user_login'));
         }
         
-        $oEntityManager = $this->getDoctrine()->getEntityManager();
+        $oEntityManager = $this->getDoctrine()->getManager();
         
         $oVideo = new Video();
         
@@ -52,7 +52,7 @@ class DefaultController extends Controller
     
     public function playAction($idvideo)
     {
-        $oEntityManager = $this->getDoctrine()->getEntityManager();
+        $oEntityManager = $this->getDoctrine()->getManager();
         
         $oVideo = $oEntityManager->getRepository("VideosBundle:Video")->find($idvideo);
                 

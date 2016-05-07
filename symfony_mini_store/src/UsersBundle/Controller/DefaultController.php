@@ -10,7 +10,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $oEntityManager = $this->getDoctrine()->getEntityManager();
+        $oEntityManager = $this->getDoctrine()->getManager();
         
         $oUsers = $oEntityManager->getRepository("UsersBundle:User")->findAll();
         
@@ -19,7 +19,7 @@ class DefaultController extends Controller
     
     public function addAction(){
         
-        $oEntityManager = $this->getDoctrine()->getEntityManager();
+        $oEntityManager = $this->getDoctrine()->getManager();
         
         $oUser = new User();
         $oForm = $this->createForm(new UserType(), $oUser);
