@@ -23,11 +23,6 @@ class DefaultController extends Controller
     
     public function addAction(){
         
-        $isFullyAuthenticated = $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');
-        if (!$isFullyAuthenticated) {
-            return $this->redirect($this->generateUrl('fos_user_login'));
-        }
-        
         $oEntityManager = $this->getDoctrine()->getManager();
         
         $oVideo = new Video();
