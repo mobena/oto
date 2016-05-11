@@ -5,24 +5,19 @@
     <div style="margin: 20px;">
         <table>
             <thead>
-                <th>Login</th>
+                <th>Email</th>
                 <th>Name</th>
-                <th>First Name</th>
-                <th>Created</th>
-                <th>Updated</th>
+                <th>Status</th>
+                <th>Last Login</th>
             </thead>
             {% for user in users %}
             <tr>
-                <td>{{ user.login }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.created|date('d/m/Y') }}</td>
-                <td>{{ user.updated|date('d/m/Y') }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.enabled }}</td>
+                <td>{{ user.lastlogin|date('d/m/Y') }}</td>
             </tr>
             {% endfor %}
         </table>
-    </div>
-    <div style="margin: 20px;">
-        <a href="{{ path("users_add") }}">Add a user</a>
     </div>
 {% endblock %}

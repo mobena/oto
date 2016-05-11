@@ -97,6 +97,7 @@
             <img src="{{ asset('favicon.ico') }}" style="width: 3%;height: auto;margin-right: 50px;" />
             <a class="menu_links" href="{{ path("homepage") }}">Home</a>
             <a class="menu_links" href="{{ path("videos_homepage") }}" title="Checkout Videos">Checkout Videos</a>
+            <a class="menu_links" href="{{ path("users_homepage") }}" title="Checkout Friends">Checkout Friends</a>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <b>Hi {{ app.user.username }} / </b>
                 <a class="menu_links" href="{{ path("homepage") }}logout" title="Log Out"  style="margin-left: 1px;">Log Out</a>

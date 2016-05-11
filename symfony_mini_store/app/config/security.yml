@@ -49,3 +49,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/videos/add, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/users, role: IS_AUTHENTICATED_FULLY }
