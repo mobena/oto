@@ -18,33 +18,9 @@
     
     <h1>Add a video</h1>
     <div style="margin: 20px;">
-    <form action="" method="post">
-        
-        <div id="video">
-            <div>
-                <label for="video_name" class="required">Name</label>
-                <input type="text" id="video_name" name="video[name]" required="required" maxlength="255"></div>
-            <div>
-                <label for="video_description" class="required">Description</label>
-                <textarea id="video_description" name="video[description]" required="required"></textarea>
-            </div>
-            <div>
-                <label for="video_source" class="required">Source</label>
-                <textarea id="video_source" name="video[source]" required="required"></textarea>
-            </div>
-            <div>
-                <label for="video_statusVisibility" class="required">Status visibility</label>
-                <input type="number" id="video_statusVisibility" name="video[statusVisibility]" required="required" value="1">
-            </div>
-            <div>
-                <label for="video_userCreator" class="required">User creator</label> : {{ app.user.username }}
-                <input type="hidden" id="video_userCreator" name="video[userCreator]" required="required" value="{{ app.user.id }}">
-            </div>
-            <br />
-            <input type="hidden" id="video__token" name="video[_token]" value="fXZcYug2Kzm82h8_Af5rL9KuMrQQetfPNGtIS0HkXzw"></div>
-        <br />
-        <input type="submit">
-    </form>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
     <div style="margin: 20px;">
         <a href="{{ path("videos_homepage") }}">Return to list</a>

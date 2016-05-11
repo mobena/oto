@@ -3,7 +3,10 @@
 namespace VideosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use VideosBundle\Entity\Video;
 use VideosBundle\Form\VideoType;
@@ -21,20 +24,29 @@ class DefaultController extends Controller
         return $this->render('VideosBundle:Default:index.html.twig',array('videos'=>$oVideos));
     }
     
-    public function addAction(){
+    public function addAction(Request $oRequest){
         
         $oEntityManager = $this->getDoctrine()->getManager();
         
         $oVideo = new Video();
         
-        $oForm = $this->createForm(new VideoType(), $oVideo);
+        //$oForm = $this->createForm(new VideoType(), $oVideo);
         
-        $oRequest = $this->getRequest();
-        if ($oRequest->isMethod('POST')) {
-            $oForm->bind($oRequest);
+        $oForm = $this->createFormBuilder($oVideo)
+            ->add('name', TextType::class)
+            ->add('description', TextType::class)
+            ->add('source', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Create Video'))
+            ->getForm();
+        
+        $oForm->handleRequest($oRequest);
+
+        if ($oForm->isValid()) {
             $oVideo = $oForm->getData();
             
             $oVideo->setCreated(new \DateTime());
+            $oVideo->setUserCreator($this->getUser()->getId());
+            $oVideo->setStatusVisibility(1);
             
             $oEntityManager->persist($oVideo);
             $oEntityManager->flush();
