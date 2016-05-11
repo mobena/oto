@@ -9,6 +9,7 @@
                 <th>Name</th>
                 <th>Status</th>
                 <th>Last Login</th>
+                <th>Roles</th>
             </thead>
             {% for user in users %}
             <tr>
@@ -16,6 +17,7 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.enabled }}</td>
                 <td>{{ user.lastlogin|date('d/m/Y') }}</td>
+                <td>{% for role in user.roles %} {{ role }} {% endfor %}</td>
             </tr>
             {% endfor %}
         </table>

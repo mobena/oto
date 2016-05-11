@@ -9,6 +9,9 @@
                 <th>Description</th>
                 <th>#</th>
                 <th>Created</th>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <th>#</th>
+                {% endif %}
             </thead>
             {% for video in videos %}
             <tr>
@@ -16,6 +19,15 @@
                 <td><a href="{{ path("videos_play",{'idvideo':video.id}) }}">{{ video.description }}</a></td>
                 <td>vignette</td>
                 <td>{{ video.created|date('d M Y') }} - {{ video.usercreator }}</td>
+                <td>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        {% if video.statusvisibility == 1 %}
+                            <a href="#" title="Trash"><img src="{{ asset('logo_trash.png') }}" style="margin-left: 50px;" /></a>
+                        {% else %}
+                            Disabled
+                        {% endif %}
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </table>
